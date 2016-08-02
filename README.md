@@ -1,6 +1,6 @@
 # ReachabilityDemo
 iOS网络——检测手机网络状态Reachability
-
+原文链接：http://www.jianshu.com/p/e96bfde21313
 
 一、整体介绍
 前面已经介绍了网络访问的NSURLSession、NSURLConnection，还有网页加载有关的webview，基本满足通常的网络相关的开发。
