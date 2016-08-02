@@ -88,6 +88,8 @@ AFNetworking附带提供的AFNetworkReachabilityManager，下载AFNetworking
 直接使用
 使用CocoaPods或者直接将AFNetwork下载并添加进项目。如果只是使用AFNetworkReachabilityManager而不适用其它网络功能则只将其.m和.h添加进项目即可。AFNetworkReachabilityManager使用了block的方式，当网络状态发生变化就会调用，且block的调用AFN已经将其限定在主线程下。下面介绍直接使用
 
+
+
 #import "AFNetworkReachabilityManager.h"
 - (void)afnReachabilityTest {
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
@@ -111,18 +113,13 @@ AFNetworking附带提供的AFNetworkReachabilityManager，下载AFNetworking
 
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
 }
-使用AFHTTPSessionManager
+注：扩展，使用afn请求的时候。使用AFHTTPSessionManager
 当使用AFN网络框架时，大多情况下，我们使用AFNetwork时会创建一个网络中间单例类，以防止换网络框架时要改动太多，比如替换之前用的多的ASI，如果有个中间类的话，替换就很简单，只需要修改中间类即可。使用时调用[NetworkTools sharedManager];即可
-
 /// 头文件
 #import "AFHTTPSessionManager.h"
-
 @interface NetworkTools : AFHTTPSessionManager
 + (instancetype)sharedManager;
 @end
-
----------------------------------------------------------------------------------
-
 /// .m文件
 #import "NetworkTools.h"
 
